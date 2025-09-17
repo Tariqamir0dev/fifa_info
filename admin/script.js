@@ -25,6 +25,11 @@ class AdminPanel {
             this.setupEventListeners();
             this.updateStats();
             this.hideLoadingScreen();
+            
+            // تحميل مخطط لوحة التحكم
+            setTimeout(() => {
+                this.loadDashboardChart();
+            }, 100);
             this.showToast('تم تحميل لوحة التحكم بنجاح!', 'success');
         } catch (error) {
             console.error('خطأ في تحميل لوحة التحكم:', error);
@@ -397,7 +402,7 @@ class AdminPanel {
      * التنقل إلى القسم التالي
      */
     navigateToNextSection() {
-        const sections = ['dashboard', 'content', 'shopping', 'branches', 'social', 'company-settings', 'settings'];
+        const sections = ['dashboard', 'content', 'shopping', 'branches', 'social', 'company-info', 'company-settings', 'settings'];
         const currentIndex = sections.indexOf(this.currentSection);
         const nextIndex = (currentIndex + 1) % sections.length;
         this.showSection(sections[nextIndex]);
@@ -407,7 +412,7 @@ class AdminPanel {
      * التنقل إلى القسم السابق
      */
     navigateToPreviousSection() {
-        const sections = ['dashboard', 'content', 'shopping', 'branches', 'social', 'company-settings', 'settings'];
+        const sections = ['dashboard', 'content', 'shopping', 'branches', 'social', 'company-info', 'company-settings', 'settings'];
         const currentIndex = sections.indexOf(this.currentSection);
         const prevIndex = currentIndex === 0 ? sections.length - 1 : currentIndex - 1;
         this.showSection(sections[prevIndex]);
@@ -548,6 +553,12 @@ class AdminPanel {
                 break;
             case 'social':
                 this.loadSocialSection();
+                break;
+            case 'company-info':
+                this.loadCompanyInfoSection();
+                break;
+            case 'visits-stats':
+                this.loadVisitsStatsSection();
                 break;
             case 'company-settings':
                 this.loadCompanySettingsSection();
@@ -821,6 +832,360 @@ class AdminPanel {
     /**
      * تحميل قسم إعدادات الشركة
      */
+    loadCompanyInfoSection() {
+        if (!this.data) return;
+
+        // تحميل معلومات الشركة
+        const companyDescription = document.getElementById('company-description');
+        const companyRegistration = document.getElementById('company-registration');
+
+        if (companyDescription && this.data.content?.company?.description) {
+            companyDescription.value = this.data.content.company.description;
+        } else if (companyDescription) {
+            companyDescription.value = 'نحن هنا للإجابة على استفساراتكم وتقديم أفضل الخدمات';
+        }
+
+        if (companyRegistration && this.data.content?.company?.registration) {
+            companyRegistration.value = this.data.content.company.registration;
+        } else if (companyRegistration) {
+            companyRegistration.value = 'شركة مسجلة ومعتمدة في المملكة العربية السعودية';
+        }
+
+        // تحميل طرق التواصل
+        const contactTitle = document.getElementById('contact-title');
+        const contactText = document.getElementById('contact-text');
+        const contactPhone = document.getElementById('contact-phone');
+        const contactWhatsappText = document.getElementById('contact-whatsapp-text');
+        const contactWhatsappLink = document.getElementById('contact-whatsapp-link');
+
+        if (contactTitle && this.data.content?.company?.contactTitle) {
+            contactTitle.value = this.data.content.company.contactTitle;
+        } else if (contactTitle) {
+            contactTitle.value = 'طرق التواصل';
+        }
+
+        if (contactText && this.data.content?.company?.contactText) {
+            contactText.value = this.data.content.company.contactText;
+        } else if (contactText) {
+            contactText.value = 'اتصال مباشر';
+        }
+
+        if (contactPhone && this.data.content?.company?.contactPhone) {
+            contactPhone.value = this.data.content.company.contactPhone;
+        } else if (contactPhone) {
+            contactPhone.value = '+966501234567';
+        }
+
+        if (contactWhatsappText && this.data.content?.company?.contactWhatsappText) {
+            contactWhatsappText.value = this.data.content.company.contactWhatsappText;
+        } else if (contactWhatsappText) {
+            contactWhatsappText.value = 'واتساب';
+        }
+
+        if (contactWhatsappLink && this.data.content?.company?.contactWhatsappLink) {
+            contactWhatsappLink.value = this.data.content.company.contactWhatsappLink;
+        } else if (contactWhatsappLink) {
+            contactWhatsappLink.value = 'https://wa.me/966501234567';
+        }
+
+        // تحميل قسم الجملة
+        const wholesaleTitle = document.getElementById('wholesale-title');
+        const wholesaleContactText = document.getElementById('wholesale-contact-text');
+        const wholesalePhone = document.getElementById('wholesale-phone');
+        const wholesaleWhatsappText = document.getElementById('wholesale-whatsapp-text');
+        const wholesaleWhatsappLink = document.getElementById('wholesale-whatsapp-link');
+
+        if (wholesaleTitle && this.data.content?.company?.wholesaleTitle) {
+            wholesaleTitle.value = this.data.content.company.wholesaleTitle;
+        } else if (wholesaleTitle) {
+            wholesaleTitle.value = 'منتجات عطارة فيفا بالجملة';
+        }
+
+        if (wholesaleContactText && this.data.content?.company?.wholesaleContactText) {
+            wholesaleContactText.value = this.data.content.company.wholesaleContactText;
+        } else if (wholesaleContactText) {
+            wholesaleContactText.value = 'اتصال';
+        }
+
+        if (wholesalePhone && this.data.content?.company?.wholesalePhone) {
+            wholesalePhone.value = this.data.content.company.wholesalePhone;
+        } else if (wholesalePhone) {
+            wholesalePhone.value = '+966501234567';
+        }
+
+        if (wholesaleWhatsappText && this.data.content?.company?.wholesaleWhatsappText) {
+            wholesaleWhatsappText.value = this.data.content.company.wholesaleWhatsappText;
+        } else if (wholesaleWhatsappText) {
+            wholesaleWhatsappText.value = 'واتساب';
+        }
+
+        if (wholesaleWhatsappLink && this.data.content?.company?.wholesaleWhatsappLink) {
+            wholesaleWhatsappLink.value = this.data.content.company.wholesaleWhatsappLink;
+        } else if (wholesaleWhatsappLink) {
+            wholesaleWhatsappLink.value = 'https://wa.me/966501234567';
+        }
+
+        // تحميل التسويق الإعلامي
+        const marketingTitle = document.getElementById('marketing-title');
+        const marketingContactText = document.getElementById('marketing-contact-text');
+        const marketingPhone = document.getElementById('marketing-phone');
+        const marketingWhatsappText = document.getElementById('marketing-whatsapp-text');
+        const marketingWhatsappLink = document.getElementById('marketing-whatsapp-link');
+
+        if (marketingTitle && this.data.content?.company?.marketingTitle) {
+            marketingTitle.value = this.data.content.company.marketingTitle;
+        } else if (marketingTitle) {
+            marketingTitle.value = 'التسويق والعلاقات العامة';
+        }
+
+        if (marketingContactText && this.data.content?.company?.marketingContactText) {
+            marketingContactText.value = this.data.content.company.marketingContactText;
+        } else if (marketingContactText) {
+            marketingContactText.value = 'اتصال';
+        }
+
+        if (marketingPhone && this.data.content?.company?.marketingPhone) {
+            marketingPhone.value = this.data.content.company.marketingPhone;
+        } else if (marketingPhone) {
+            marketingPhone.value = '+966501234567';
+        }
+
+        if (marketingWhatsappText && this.data.content?.company?.marketingWhatsappText) {
+            marketingWhatsappText.value = this.data.content.company.marketingWhatsappText;
+        } else if (marketingWhatsappText) {
+            marketingWhatsappText.value = 'واتساب';
+        }
+
+        if (marketingWhatsappLink && this.data.content?.company?.marketingWhatsappLink) {
+            marketingWhatsappLink.value = this.data.content.company.marketingWhatsappLink;
+        } else if (marketingWhatsappLink) {
+            marketingWhatsappLink.value = 'https://wa.me/966501234567';
+        }
+
+        // تحميل قسم المشتريات
+        const purchasingTitle = document.getElementById('purchasing-title');
+        const purchasingContactText = document.getElementById('purchasing-contact-text');
+        const purchasingPhone = document.getElementById('purchasing-phone');
+        const purchasingWhatsappText = document.getElementById('purchasing-whatsapp-text');
+        const purchasingWhatsappLink = document.getElementById('purchasing-whatsapp-link');
+
+        if (purchasingTitle && this.data.content?.company?.purchasingTitle) {
+            purchasingTitle.value = this.data.content.company.purchasingTitle;
+        } else if (purchasingTitle) {
+            purchasingTitle.value = 'لاستقبال عروض المنتجات';
+        }
+
+        if (purchasingContactText && this.data.content?.company?.purchasingContactText) {
+            purchasingContactText.value = this.data.content.company.purchasingContactText;
+        } else if (purchasingContactText) {
+            purchasingContactText.value = 'اتصال';
+        }
+
+        if (purchasingPhone && this.data.content?.company?.purchasingPhone) {
+            purchasingPhone.value = this.data.content.company.purchasingPhone;
+        } else if (purchasingPhone) {
+            purchasingPhone.value = '+966501234567';
+        }
+
+        if (purchasingWhatsappText && this.data.content?.company?.purchasingWhatsappText) {
+            purchasingWhatsappText.value = this.data.content.company.purchasingWhatsappText;
+        } else if (purchasingWhatsappText) {
+            purchasingWhatsappText.value = 'واتساب';
+        }
+
+        if (purchasingWhatsappLink && this.data.content?.company?.purchasingWhatsappLink) {
+            purchasingWhatsappLink.value = this.data.content.company.purchasingWhatsappLink;
+        } else if (purchasingWhatsappLink) {
+            purchasingWhatsappLink.value = 'https://wa.me/966501234567';
+        }
+
+        // تحميل طلب المنتجات
+        const productOrderTitle = document.getElementById('product-order-title');
+        const productOrderContactText = document.getElementById('product-order-contact-text');
+        const productOrderPhone = document.getElementById('product-order-phone');
+        const productOrderWhatsappText = document.getElementById('product-order-whatsapp-text');
+        const productOrderWhatsappLink = document.getElementById('product-order-whatsapp-link');
+
+        if (productOrderTitle && this.data.content?.company?.productOrderTitle) {
+            productOrderTitle.value = this.data.content.company.productOrderTitle;
+        } else if (productOrderTitle) {
+            productOrderTitle.value = 'طلب المنتجات';
+        }
+
+        if (productOrderContactText && this.data.content?.company?.productOrderContactText) {
+            productOrderContactText.value = this.data.content.company.productOrderContactText;
+        } else if (productOrderContactText) {
+            productOrderContactText.value = 'اتصال';
+        }
+
+        if (productOrderPhone && this.data.content?.company?.productOrderPhone) {
+            productOrderPhone.value = this.data.content.company.productOrderPhone;
+        } else if (productOrderPhone) {
+            productOrderPhone.value = '+966501234567';
+        }
+
+        if (productOrderWhatsappText && this.data.content?.company?.productOrderWhatsappText) {
+            productOrderWhatsappText.value = this.data.content.company.productOrderWhatsappText;
+        } else if (productOrderWhatsappText) {
+            productOrderWhatsappText.value = 'واتساب';
+        }
+
+        if (productOrderWhatsappLink && this.data.content?.company?.productOrderWhatsappLink) {
+            productOrderWhatsappLink.value = this.data.content.company.productOrderWhatsappLink;
+        } else if (productOrderWhatsappLink) {
+            productOrderWhatsappLink.value = 'https://wa.me/966501234567';
+        }
+    }
+
+    /**
+     * تحميل قسم إحصائيات الزيارات
+     */
+    loadVisitsStatsSection() {
+        // تحميل الإحصائيات من البيانات المحفوظة أو استخدام البيانات الافتراضية
+        const stats = this.data.visitsStats || {
+            todayVisits: 156,
+            citiesCount: 24,
+            devicesCount: 3,
+            osCount: 4,
+            continentsCount: 3,
+            dailyData: [45, 52, 38, 67, 89, 76, 95, 82, 71, 58, 63, 78, 85, 92, 88, 74, 69, 81, 94, 87, 73, 66, 79, 91, 84, 77, 68, 83, 96, 89],
+            recentActivity: [
+                { location: 'الرياض', time: 'منذ دقيقتين', type: 'new' },
+                { location: 'جدة', time: 'منذ 5 دقائق', type: 'return' },
+                { location: 'الدمام', time: 'منذ 10 دقائق', type: 'new' },
+                { location: 'مكة المكرمة', time: 'منذ 15 دقيقة', type: 'return' }
+            ]
+        };
+
+        // تحديث الأرقام
+        document.getElementById('today-visits').textContent = stats.todayVisits.toLocaleString();
+        document.getElementById('cities-count').textContent = stats.citiesCount.toLocaleString();
+        document.getElementById('devices-count').textContent = stats.devicesCount.toLocaleString();
+        document.getElementById('os-count').textContent = stats.osCount.toLocaleString();
+        document.getElementById('continents-count').textContent = stats.continentsCount.toLocaleString();
+
+        // تحديث الرسم البياني اليومي
+        this.updateDailyChart(stats.dailyData, 'daily-visits-chart');
+
+        // تحديث النشاط الأخير
+        this.updateRecentActivity(stats.recentActivity);
+    }
+
+    /**
+     * تحديث الرسم البياني اليومي
+     */
+    updateDailyChart(dailyData, containerId) {
+        const chartContainer = document.getElementById(containerId);
+        if (!chartContainer) return;
+
+        const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-orange-500', 'bg-red-500', 'bg-indigo-500', 'bg-pink-500', 'bg-yellow-500', 'bg-teal-500', 'bg-cyan-500'];
+        
+        chartContainer.innerHTML = '';
+        
+        dailyData.forEach((height, index) => {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'flex flex-col items-center space-y-1';
+            dayElement.innerHTML = `
+                <div class="w-3 ${colors[index % colors.length]} rounded-t transition-all duration-500 hover:opacity-80" style="height: ${height}%" title="اليوم ${index + 1}: ${height} زيارة"></div>
+                <span class="text-xs saudi-regular text-gray-600">${index + 1}</span>
+            `;
+            chartContainer.appendChild(dayElement);
+        });
+    }
+
+
+    /**
+     * تحديث النشاط الأخير
+     */
+    updateRecentActivity(activities) {
+        const activityContainer = document.querySelector('#visits-stats-section .space-y-3');
+        if (!activityContainer) return;
+
+        const colors = {
+            new: 'bg-green-500',
+            return: 'bg-blue-500'
+        };
+
+        activityContainer.innerHTML = '';
+        
+        activities.forEach(activity => {
+            const activityElement = document.createElement('div');
+            activityElement.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
+            activityElement.innerHTML = `
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-2 h-2 ${colors[activity.type]} rounded-full"></div>
+                    <span class="text-sm saudi-regular text-gray-700">زيارة ${activity.type === 'new' ? 'جديدة' : ''} من ${activity.location}</span>
+                </div>
+                <span class="text-xs saudi-regular text-gray-500">${activity.time}</span>
+            `;
+            activityContainer.appendChild(activityElement);
+        });
+    }
+
+    /**
+     * تحديث الإحصائيات
+     */
+    async refreshStats() {
+        const refreshBtn = document.querySelector('button[onclick="adminApp.refreshStats()"]');
+        const originalContent = refreshBtn.innerHTML;
+        
+        // عرض حالة التحديث
+        refreshBtn.innerHTML = `
+            <svg class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            <span>جاري التحديث...</span>
+        `;
+        refreshBtn.disabled = true;
+
+        // محاكاة تأخير الشبكة
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // توليد بيانات جديدة عشوائية
+        const newStats = {
+            todayVisits: Math.floor(Math.random() * 50) + 100,
+            citiesCount: Math.floor(Math.random() * 10) + 20,
+            devicesCount: 3,
+            osCount: 4,
+            continentsCount: Math.floor(Math.random() * 2) + 3,
+            dailyData: Array.from({length: 30}, () => Math.floor(Math.random() * 60) + 30),
+            recentActivity: [
+                { location: 'الرياض', time: 'الآن', type: 'new' },
+                { location: 'جدة', time: 'منذ دقيقة', type: 'return' },
+                { location: 'الدمام', time: 'منذ 3 دقائق', type: 'new' },
+                { location: 'مكة المكرمة', time: 'منذ 7 دقائق', type: 'return' }
+            ]
+        };
+
+        // حفظ البيانات الجديدة
+        this.data.visitsStats = newStats;
+        localStorage.setItem('adminData', JSON.stringify(this.data));
+
+        // تحديث الواجهة
+        this.loadVisitsStatsSection();
+
+        // استعادة الزر
+        refreshBtn.innerHTML = originalContent;
+        refreshBtn.disabled = false;
+
+        // عرض رسالة نجاح
+        this.showToast('تم تحديث الإحصائيات بنجاح', 'success');
+    }
+
+    /**
+     * تحميل مخطط لوحة التحكم
+     */
+    loadDashboardChart() {
+        const stats = this.data.visitsStats || {
+            dailyData: [45, 52, 38, 67, 89, 76, 95, 82, 71, 58, 63, 78, 85, 92, 88, 74, 69, 81, 94, 87, 73, 66, 79, 91, 84, 77, 68, 83, 96, 89]
+        };
+        
+        this.updateDailyChart(stats.dailyData, 'dashboard-daily-chart');
+    }
+
+    /**
+     * تحميل قسم إعدادات الحساب
+     */
     loadCompanySettingsSection() {
         // تحميل اسم المستخدم الحالي
         const currentUsername = document.getElementById('current-username');
@@ -1093,6 +1458,98 @@ class AdminPanel {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
                 </svg>
                 <span>حفظ إعدادات الحساب</span>
+            `;
+        }
+    }
+
+    /**
+     * حفظ إعدادات الشركة
+     */
+    async saveCompanyInfo() {
+        try {
+            const saveButton = document.getElementById('save-company-info-btn');
+            const saveStatus = document.getElementById('save-company-info-status');
+            
+            // إظهار حالة التحميل
+            saveButton.disabled = true;
+            saveButton.innerHTML = `
+                <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                <span>جاري الحفظ...</span>
+            `;
+
+            // جمع بيانات الشركة
+            const companyData = {
+                description: document.getElementById('company-description').value,
+                registration: document.getElementById('company-registration').value,
+                contactTitle: document.getElementById('contact-title').value,
+                contactText: document.getElementById('contact-text').value,
+                contactPhone: document.getElementById('contact-phone').value,
+                contactWhatsappText: document.getElementById('contact-whatsapp-text').value,
+                contactWhatsappLink: document.getElementById('contact-whatsapp-link').value,
+                wholesaleTitle: document.getElementById('wholesale-title').value,
+                wholesaleContactText: document.getElementById('wholesale-contact-text').value,
+                wholesalePhone: document.getElementById('wholesale-phone').value,
+                wholesaleWhatsappText: document.getElementById('wholesale-whatsapp-text').value,
+                wholesaleWhatsappLink: document.getElementById('wholesale-whatsapp-link').value,
+                marketingTitle: document.getElementById('marketing-title').value,
+                marketingContactText: document.getElementById('marketing-contact-text').value,
+                marketingPhone: document.getElementById('marketing-phone').value,
+                marketingWhatsappText: document.getElementById('marketing-whatsapp-text').value,
+                marketingWhatsappLink: document.getElementById('marketing-whatsapp-link').value,
+                purchasingTitle: document.getElementById('purchasing-title').value,
+                purchasingContactText: document.getElementById('purchasing-contact-text').value,
+                purchasingPhone: document.getElementById('purchasing-phone').value,
+                purchasingWhatsappText: document.getElementById('purchasing-whatsapp-text').value,
+                purchasingWhatsappLink: document.getElementById('purchasing-whatsapp-link').value,
+                productOrderTitle: document.getElementById('product-order-title').value,
+                productOrderContactText: document.getElementById('product-order-contact-text').value,
+                productOrderPhone: document.getElementById('product-order-phone').value,
+                productOrderWhatsappText: document.getElementById('product-order-whatsapp-text').value,
+                productOrderWhatsappLink: document.getElementById('product-order-whatsapp-link').value
+            };
+
+            // محاكاة تأخير الشبكة
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // حفظ البيانات
+            if (!this.data.content) {
+                this.data.content = {};
+            }
+            this.data.content.company = companyData;
+            localStorage.setItem('fyfa-admin-data', JSON.stringify(this.data));
+            
+            // إظهار رسالة النجاح
+            saveStatus.classList.remove('hidden');
+            saveStatus.innerHTML = `
+                <div class="flex items-center space-x-2 space-x-reverse p-3 rounded-lg bg-green-50 border border-green-200">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class="text-sm saudi-regular text-green-700">تم حفظ إعدادات الشركة بنجاح</span>
+                </div>
+            `;
+
+            // إخفاء رسالة النجاح بعد 3 ثوان
+            setTimeout(() => {
+                saveStatus.classList.add('hidden');
+            }, 3000);
+
+            this.hasUnsavedChanges = false;
+            this.showToast('تم حفظ إعدادات الشركة بنجاح!', 'success');
+
+        } catch (error) {
+            console.error('خطأ في حفظ إعدادات الشركة:', error);
+            this.showToast('حدث خطأ في حفظ إعدادات الشركة', 'error');
+        } finally {
+            // استعادة الزر
+            saveButton.disabled = false;
+            saveButton.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+                </svg>
+                <span>حفظ إعدادات الشركة</span>
             `;
         }
     }
@@ -1565,6 +2022,36 @@ class AdminPanel {
             info: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>'
         };
         return icons[type] || icons.info;
+    }
+
+    /**
+     * تبديل إظهار/إخفاء تفاصيل الإحصائيات
+     */
+    toggleStatsDetails(statType) {
+        const detailsElement = document.getElementById(`${statType}-details`);
+        if (!detailsElement) return;
+
+        // إخفاء جميع التفاصيل الأخرى أولاً
+        document.querySelectorAll('[id$="-details"]').forEach(detail => {
+            if (detail.id !== `${statType}-details`) {
+                detail.classList.add('hidden');
+            }
+        });
+
+        // تبديل حالة التفاصيل الحالية
+        detailsElement.classList.toggle('hidden');
+        
+        // إضافة تأثير سلس
+        if (!detailsElement.classList.contains('hidden')) {
+            detailsElement.style.opacity = '0';
+            detailsElement.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                detailsElement.style.transition = 'all 0.3s ease';
+                detailsElement.style.opacity = '1';
+                detailsElement.style.transform = 'translateY(0)';
+            }, 10);
+        }
     }
 }
 

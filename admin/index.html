@@ -54,6 +54,16 @@
 </head>
 <body class="bg-gray-100 font-saudi min-h-screen">
     
+    <!-- Developer Credit Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white text-gray-800 py-2 px-4 shadow-lg developer-credit-bar border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex justify-center items-center">
+            <span class="text-sm font-medium text-gray-600">تصميم وبرمجة</span>
+            <a href="https://wa.me/96538848789" target="_blank" class="mr-2 text-amber-800 hover:text-amber-900 font-bold text-base transition-all duration-200 hover:underline">
+                م/ طارق عامر
+            </a>
+        </div>
+    </div>
+    
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-gray-50 to-gray-100 z-50 flex items-center justify-center">
         <div class="text-center">
@@ -152,10 +162,28 @@
                         <span class="saudi-regular">وسائل التواصل</span>
                     </a>
 
-                    <a href="#company-settings" onclick="adminApp.showSection('company-settings')" 
+                    <a href="#company-info" onclick="adminApp.showSection('company-info')" 
                        class="nav-item flex items-center space-x-3 space-x-reverse px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                        <span class="saudi-regular">إعدادات الشركة</span>
+                    </a>
+
+                    <!-- إحصائيات الزيارات -->
+                    <a href="#visits-stats" onclick="adminApp.showSection('visits-stats')" 
+                       class="nav-item flex items-center space-x-3 space-x-reverse px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <span class="saudi-regular">إحصائيات الزيارات</span>
+                    </a>
+
+                    <a href="#company-settings" onclick="adminApp.showSection('company-settings')" 
+                       class="nav-item flex items-center space-x-3 space-x-reverse px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                         <span class="saudi-regular">إعدادات الحساب</span>
                     </a>
@@ -192,39 +220,39 @@
 
                 <!-- Company Info & Copyright -->
                 <div class="mt-6 pt-4 border-t border-gray-200">
-                    <div class="company-info-box rounded-lg p-4">
+                    <div class="company-info-box bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-5 border border-primary/20 shadow-sm">
                         <!-- Company Logo/Icon -->
-                        <div class="flex items-center space-x-2 space-x-reverse mb-3">
-                            <div class="company-logo w-8 h-8 rounded-lg flex items-center justify-center">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center justify-center space-x-3 space-x-reverse mb-4">
+                            <div class="company-logo w-10 h-10 rounded-xl flex items-center justify-center shadow-md">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                                 </svg>
                             </div>
-                            <h3 class="text-sm saudi-bold text-primary">عطارة فيفا</h3>
+                            <h3 class="text-lg saudi-bold text-primary">عطارة فيفا</h3>
                         </div>
 
                         <!-- Copyright -->
-                        <div class="text-center mb-3">
-                            <p class="copyright-text text-xs saudi-regular">
+                        <div class="text-center mb-4">
+                            <p class="copyright-text text-sm saudi-regular text-gray-700 leading-relaxed">
                                 جميع الحقوق محفوظة<br>
-                                <span class="saudi-bold text-primary">شركة عطارة فيفا 2025</span>
+                                <span class="saudi-bold text-primary text-base">شركة عطارة فيفا 2025</span>
                             </p>
                         </div>
 
                         <!-- Developer Info -->
-                        <div class="developer-info flex items-center justify-center space-x-2 space-x-reverse">
+                        <div class="developer-info flex items-center justify-center space-x-2 space-x-reverse mb-3">
                             <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                             </svg>
-                            <p class="text-xs text-gray-500 saudi-regular">
+                            <p class="text-sm text-gray-600 saudi-regular">
                                 تصميم وبرمجة 
                                 <span class="saudi-bold text-primary">م / طارق عامر</span>
                             </p>
                         </div>
 
                         <!-- Version Info -->
-                        <div class="text-center mt-2">
-                            <span class="version-badge inline-block px-2 py-1 text-xs saudi-regular rounded-full">
+                        <div class="text-center">
+                            <span class="version-badge inline-block px-3 py-1 text-xs saudi-bold rounded-full bg-primary/10 text-primary border border-primary/20">
                                 v1.0.0
                             </span>
                         </div>
@@ -308,6 +336,14 @@
                             <button onclick="adminApp.showSection('branches')" 
                                     class="mobile-nav-tab px-3 py-1 rounded-lg text-xs saudi-bold transition-colors duration-200">
                                 الفروع
+                            </button>
+                            <button onclick="adminApp.showSection('company-info')" 
+                                    class="mobile-nav-tab px-3 py-1 rounded-lg text-xs saudi-bold transition-colors duration-200">
+                                الشركة
+                            </button>
+                            <button onclick="adminApp.showSection('visits-stats')" 
+                                    class="mobile-nav-tab px-3 py-1 rounded-lg text-xs saudi-bold transition-colors duration-200">
+                                الإحصائيات
                             </button>
                             <button onclick="adminApp.showSection('company-settings')" 
                                     class="mobile-nav-tab px-3 py-1 rounded-lg text-xs saudi-bold transition-colors duration-200">
@@ -418,6 +454,20 @@
                         </div>
                     </div>
 
+                    <!-- Daily Visits Chart - Dashboard -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="saudi-bold text-lg text-gray-800">الزيارات اليومية</h3>
+                            <button onclick="adminApp.showSection('visits-stats')" 
+                                    class="text-primary hover:text-primary/80 saudi-regular text-sm transition-colors duration-200">
+                                عرض التفاصيل →
+                            </button>
+                        </div>
+                        <div class="h-64 flex items-end justify-between space-x-1 space-x-reverse" id="dashboard-daily-chart">
+                            <!-- Chart will be generated by JavaScript -->
+                        </div>
+                    </div>
+
                     <!-- Quick Actions -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                         <h3 class="saudi-bold text-lg text-gray-800 mb-4">إجراءات سريعة</h3>
@@ -466,11 +516,34 @@
                                 <p class="text-sm text-gray-500 saudi-regular">تعديل روابط وسائل التواصل</p>
                             </button>
 
+                            <button onclick="adminApp.showSection('company-info')" 
+                                    class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-right">
+                                <div class="flex items-center space-x-3 space-x-reverse mb-2">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                    <span class="saudi-bold text-gray-800">إعدادات الشركة</span>
+                                </div>
+                                <p class="text-sm text-gray-500 saudi-regular">تعديل معلومات وخدمات الشركة</p>
+                            </button>
+
+                            <button onclick="adminApp.showSection('visits-stats')" 
+                                    class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-right">
+                                <div class="flex items-center space-x-3 space-x-reverse mb-2">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                    <span class="saudi-bold text-gray-800">إحصائيات الزيارات</span>
+                                </div>
+                                <p class="text-sm text-gray-500 saudi-regular">عرض إحصائيات زيارات الموقع</p>
+                            </button>
+
                             <button onclick="adminApp.showSection('company-settings')" 
                                     class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-right">
                                 <div class="flex items-center space-x-3 space-x-reverse mb-2">
                                     <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                     </svg>
                                     <span class="saudi-bold text-gray-800">إعدادات الحساب</span>
                                 </div>
@@ -784,6 +857,480 @@
 
                         <div id="social-links-list" class="space-y-4">
                             <!-- Social links will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Info Section -->
+                <div id="company-info-section" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="saudi-bold text-lg text-gray-800">إعدادات الشركة</h3>
+                            <button onclick="adminApp.saveCompanyInfo()" 
+                                    id="save-company-info-btn"
+                                    class="bg-primary text-white px-6 py-3 rounded-lg saudi-bold hover:bg-primary/90 transition-all duration-200 flex items-center space-x-2 space-x-reverse shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+                                </svg>
+                                <span>حفظ إعدادات الشركة</span>
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <!-- Company Information -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">معلومات الشركة</h4>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">وصف الشركة</label>
+                                        <textarea id="company-description" rows="3"
+                                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                                  placeholder="نحن هنا للإجابة على استفساراتكم وتقديم أفضل الخدمات"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">معلومات التسجيل</label>
+                                        <input type="text" id="company-registration" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="شركة مسجلة ومعتمدة في المملكة العربية السعودية">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Methods -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">طرق التواصل</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">عنوان طرق التواصل</label>
+                                        <input type="text" id="contact-title" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="طرق التواصل">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص الاتصال</label>
+                                        <input type="text" id="contact-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="اتصال مباشر">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                        <input type="tel" id="contact-phone" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="+966501234567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص WhatsApp</label>
+                                        <input type="text" id="contact-whatsapp-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="واتساب">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رابط WhatsApp</label>
+                                        <input type="url" id="contact-whatsapp-link" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="https://wa.me/966501234567">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Wholesale Section -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">قسم الجملة</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">عنوان قسم الجملة</label>
+                                        <input type="text" id="wholesale-title" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="منتجات عطارة فيفا بالجملة">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص الاتصال</label>
+                                        <input type="text" id="wholesale-contact-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="اتصال">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                        <input type="tel" id="wholesale-phone" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="+966501234567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص WhatsApp</label>
+                                        <input type="text" id="wholesale-whatsapp-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="واتساب">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رابط WhatsApp</label>
+                                        <input type="url" id="wholesale-whatsapp-link" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="https://wa.me/966501234567">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Marketing Section -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">التسويق الإعلامي</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">عنوان التسويق الإعلامي</label>
+                                        <input type="text" id="marketing-title" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="التسويق والعلاقات العامة">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص الاتصال</label>
+                                        <input type="text" id="marketing-contact-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="اتصال">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                        <input type="tel" id="marketing-phone" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="+966501234567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص WhatsApp</label>
+                                        <input type="text" id="marketing-whatsapp-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="واتساب">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رابط WhatsApp</label>
+                                        <input type="url" id="marketing-whatsapp-link" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="https://wa.me/966501234567">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Purchasing Section -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">قسم المشتريات</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">عنوان قسم المشتريات</label>
+                                        <input type="text" id="purchasing-title" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="لاستقبال عروض المنتجات">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص الاتصال</label>
+                                        <input type="text" id="purchasing-contact-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="اتصال">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                        <input type="tel" id="purchasing-phone" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="+966501234567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص WhatsApp</label>
+                                        <input type="text" id="purchasing-whatsapp-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="واتساب">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رابط WhatsApp</label>
+                                        <input type="url" id="purchasing-whatsapp-link" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="https://wa.me/966501234567">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product Order Section -->
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="saudi-bold text-lg text-gray-800 mb-4">طلب المنتجات</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">عنوان طلب المنتجات</label>
+                                        <input type="text" id="product-order-title" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="طلب المنتجات">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص الاتصال</label>
+                                        <input type="text" id="product-order-contact-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="اتصال">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رقم الهاتف</label>
+                                        <input type="tel" id="product-order-phone" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="+966501234567">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">نص WhatsApp</label>
+                                        <input type="text" id="product-order-whatsapp-text" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="واتساب">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm saudi-bold text-gray-700 mb-2">رابط WhatsApp</label>
+                                        <input type="url" id="product-order-whatsapp-link" 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent saudi-regular"
+                                               placeholder="https://wa.me/966501234567">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Save Status -->
+                        <div id="save-company-info-status" class="mt-6 hidden">
+                            <div class="flex items-center space-x-2 space-x-reverse p-3 rounded-lg">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm saudi-regular text-green-700">تم حفظ إعدادات الشركة بنجاح</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visits Statistics Section -->
+                <div id="visits-stats-section" class="section hidden">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="saudi-bold text-lg text-gray-800">إحصائيات الزيارات</h3>
+                            <div class="flex items-center space-x-2 space-x-reverse">
+                                <button onclick="adminApp.refreshStats()" 
+                                        class="bg-green-600 text-white px-4 py-2 rounded-lg saudi-bold hover:bg-green-700 transition-all duration-200 flex items-center space-x-2 space-x-reverse">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                    </svg>
+                                    <span>تحديث</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Statistics Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+                            <!-- Today's Visits -->
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200 cursor-pointer hover:shadow-lg transition-all duration-300" onclick="adminApp.toggleStatsDetails('today-visits')">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="p-3 bg-green-500 rounded-lg">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm saudi-regular text-green-600">+8%</span>
+                                </div>
+                                <h4 class="text-2xl saudi-bold text-green-800 mb-1" id="today-visits">156</h4>
+                                <p class="text-sm saudi-regular text-green-600">زيارات اليوم</p>
+                                
+                                <!-- Today's Visits Details -->
+                                <div id="today-visits-details" class="hidden mt-4 pt-4 border-t border-green-200">
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-green-700">الزيارات الحالية:</span>
+                                            <span class="text-sm font-bold text-green-800">156</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-green-700">أعلى زيارة اليوم:</span>
+                                            <span class="text-sm font-bold text-green-800">89 زيارة/ساعة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-green-700">متوسط الزيارات:</span>
+                                            <span class="text-sm font-bold text-green-800">6.5 زيارة/ساعة</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cities -->
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200 cursor-pointer hover:shadow-lg transition-all duration-300" onclick="adminApp.toggleStatsDetails('cities-visits')">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="p-3 bg-blue-500 rounded-lg">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm saudi-regular text-blue-600">+12%</span>
+                                </div>
+                                <h4 class="text-2xl saudi-bold text-blue-800 mb-1" id="cities-count">24</h4>
+                                <p class="text-sm saudi-regular text-blue-600">مدن الزيارات</p>
+                                
+                                <!-- Cities Details -->
+                                <div id="cities-visits-details" class="hidden mt-4 pt-4 border-t border-blue-200">
+                                    <div class="space-y-2 max-h-40 overflow-y-auto">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">الكويت:</span>
+                                            <span class="text-sm font-bold text-blue-800">89 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">السعودية:</span>
+                                            <span class="text-sm font-bold text-blue-800">45 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">الإمارات:</span>
+                                            <span class="text-sm font-bold text-blue-800">32 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">قطر:</span>
+                                            <span class="text-sm font-bold text-blue-800">28 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">البحرين:</span>
+                                            <span class="text-sm font-bold text-blue-800">15 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-blue-700">عُمان:</span>
+                                            <span class="text-sm font-bold text-blue-800">12 زيارة</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Devices -->
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200 cursor-pointer hover:shadow-lg transition-all duration-300" onclick="adminApp.toggleStatsDetails('devices-visits')">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="p-3 bg-purple-500 rounded-lg">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm saudi-regular text-purple-600">+15%</span>
+                                </div>
+                                <h4 class="text-2xl saudi-bold text-purple-800 mb-1" id="devices-count">3</h4>
+                                <p class="text-sm saudi-regular text-purple-600">أجهزة الزيارة</p>
+                                
+                                <!-- Devices Details -->
+                                <div id="devices-visits-details" class="hidden mt-4 pt-4 border-t border-purple-200">
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-purple-700">الهواتف الذكية:</span>
+                                            <span class="text-sm font-bold text-purple-800">98 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-purple-700">أجهزة الكمبيوتر:</span>
+                                            <span class="text-sm font-bold text-purple-800">45 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-purple-700">الأجهزة اللوحية:</span>
+                                            <span class="text-sm font-bold text-purple-800">13 زيارة</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Operating Systems -->
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200 cursor-pointer hover:shadow-lg transition-all duration-300" onclick="adminApp.toggleStatsDetails('os-visits')">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="p-3 bg-orange-500 rounded-lg">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm saudi-regular text-orange-600">+22%</span>
+                                </div>
+                                <h4 class="text-2xl saudi-bold text-orange-800 mb-1" id="os-count">4</h4>
+                                <p class="text-sm saudi-regular text-orange-600">أنظمة التشغيل</p>
+                                
+                                <!-- Operating Systems Details -->
+                                <div id="os-visits-details" class="hidden mt-4 pt-4 border-t border-orange-200">
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-orange-700">Android:</span>
+                                            <span class="text-sm font-bold text-orange-800">67 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-orange-700">iOS:</span>
+                                            <span class="text-sm font-bold text-orange-800">31 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-orange-700">Windows:</span>
+                                            <span class="text-sm font-bold text-orange-800">45 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-orange-700">macOS:</span>
+                                            <span class="text-sm font-bold text-orange-800">13 زيارة</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Continents -->
+                            <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border border-red-200 cursor-pointer hover:shadow-lg transition-all duration-300" onclick="adminApp.toggleStatsDetails('continents-visits')">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="p-3 bg-red-500 rounded-lg">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm saudi-regular text-red-600">+5%</span>
+                                </div>
+                                <h4 class="text-2xl saudi-bold text-red-800 mb-1" id="continents-count">3</h4>
+                                <p class="text-sm saudi-regular text-red-600">قارات الزيارة</p>
+                                
+                                <!-- Continents Details -->
+                                <div id="continents-visits-details" class="hidden mt-4 pt-4 border-t border-red-200">
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-red-700">آسيا:</span>
+                                            <span class="text-sm font-bold text-red-800">134 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-red-700">أفريقيا:</span>
+                                            <span class="text-sm font-bold text-red-800">18 زيارة</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-red-700">أوروبا:</span>
+                                            <span class="text-sm font-bold text-red-800">4 زيارة</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Daily Visits Chart -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+                            <h4 class="saudi-bold text-lg text-gray-800 mb-4">الزيارات حسب اليوم</h4>
+                            <div class="h-80 flex items-end justify-between space-x-1 space-x-reverse" id="daily-visits-chart">
+                                <!-- Chart will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-6">
+                            <h4 class="saudi-bold text-lg text-gray-800 mb-4">النشاط الأخير</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                        <span class="text-sm saudi-regular text-gray-700">زيارة جديدة من الرياض</span>
+                                    </div>
+                                    <span class="text-xs saudi-regular text-gray-500">منذ دقيقتين</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                        <span class="text-sm saudi-regular text-gray-700">زيارة من جدة</span>
+                                    </div>
+                                    <span class="text-xs saudi-regular text-gray-500">منذ 5 دقائق</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                        <span class="text-sm saudi-regular text-gray-700">زيارة من الدمام</span>
+                                    </div>
+                                    <span class="text-xs saudi-regular text-gray-500">منذ 10 دقائق</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                        <span class="text-sm saudi-regular text-gray-700">زيارة من مكة المكرمة</span>
+                                    </div>
+                                    <span class="text-xs saudi-regular text-gray-500">منذ 15 دقيقة</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
